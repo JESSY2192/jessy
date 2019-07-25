@@ -51,8 +51,6 @@
     client.subscribe("/cloudmqttx");
     message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
     message.destinationName = "/cloudmqtty";
-    
-	
   }
 
   function doFail(e){
@@ -89,7 +87,7 @@
 	//userIdId=document.getElementById("userId").value;
 	
     //sendMessage(userId+boarId+':led_state:0')
-	sendMessage('led')
+	sendMessage('ldr')
   }
   // called when a message arrives
   myName='leo'
