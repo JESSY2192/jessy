@@ -51,6 +51,8 @@
 	
     client.subscribe("/cloudmqttx");
     message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
+	sensor=document.getElementById('sensor_val');
+	sensor.innerHTML=message.payloadString
     message.destinationName = "/cloudmqtty";
   }
 
@@ -107,8 +109,6 @@
 		  case 'sensor_val':
 			sensor_val=v;
 			//document.getElementById("sensor_val").innerHTML=sensor_val;
-			//sensor=document.getElementById('sensor_val');
-			sensor.innerHTML=message.payloadString
 			// code block
 			break;
 		  default:
