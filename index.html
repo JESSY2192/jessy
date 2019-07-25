@@ -51,8 +51,6 @@
 	
     client.subscribe("/cloudmqttx");
     message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
-	sensor=document.getElementById('sensor_val');
-	sensor.innerHTML=message.payloadString
     message.destinationName = "/cloudmqtty";
   }
 
@@ -91,6 +89,15 @@
     //sendMessage(userId+boarId+':led_state:0')
 	sendMessage('ldr')
   }
+  
+  if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("lastname", "sensor");
+  // Retrieve
+  document.getElementById("sensor_val").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("sensor_val").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
   // called when a message arrives
   myName='leo'
   led_state=true
