@@ -48,9 +48,9 @@
     // Once a connection has been made, make a subscription and send a message.
     console.log("onConnect");
 	
-    client.subscribe("/cloudmqtt");
+    client.subscribe("/cloudmqttx");
     message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
-    message.destinationName = "/cloudmqtt";
+    message.destinationName = "/cloudmqtty";
     
 	
   }
@@ -78,7 +78,7 @@
     // called when a message arrives
   function sendMessage(msg) {
     message = new Paho.MQTT.Message(msg);
-    message.destinationName = "/cloudmqtt";
+    message.destinationName = "/cloudmqtty";
     client.send(message);
 	
   }
