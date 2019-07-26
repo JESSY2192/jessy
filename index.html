@@ -28,7 +28,7 @@
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
   client = new Paho.MQTT.Client("postman.cloudmqtt.com",32147, "web_" + parseInt(Math.random() * 100, 10));
-
+var sensor
   // set callback handlers
   client.onConnectionLost = onConnectionLost;
   client.onMessageArrived = onMessageArrived;
@@ -69,7 +69,7 @@
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	var sensor=document.getElementById('sensor_val');
+	sensor=document.getElementById('sensor_val');
 	sensor.innerHTML=message.payloadString
 	doAction(message.payloadString);
   }
