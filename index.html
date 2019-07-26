@@ -74,7 +74,8 @@ var message
     console.log("onMessageArrived:"+message.payloadString);
 	sensor=document.getElementById('sensor_val');
 	sensor.innerHTML=message.payloadString;
-	var d=message.payloadString;
+	//var d=message.payloadString;
+	var d=document.getElementById('sensor_val');
 	localStorage.setItem('sensor',d)
 	doAction(message.payloadString);
   }
