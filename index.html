@@ -4,7 +4,7 @@
 	    <title>MQTT JavaScript Client Example</title>
 	    <!-- Latest compiled and minified CSS - add here as needed -->
 	</head>
-	<body onload="myFunction()">
+	<body>
 	    <!-- HTML to display MQTT topic values ------------------------------------------------->
 		<div><strong>IOT Server</strong></div><br>
 		<textarea style="resize:none; border: none" readonly rows="1" cols="10">User Id</textarea>
@@ -52,8 +52,9 @@ var message
 	
 	
     client.subscribe("/cloudmqttx");
-    message = new Paho.MQTT.Message("ll:Hello: CloudMQTT");
+    message = new Paho.MQTT.Message("ldr");
     message.destinationName = "/cloudmqtty";
+	client.send(message);
   }
 
   function doFail(e){
@@ -75,17 +76,18 @@ var message
 	sensor=document.getElementById('sensor_val');
 	sensor.innerHTML=message.payloadString;
 	//var d=message.payloadString;
-	var d=sensor;
-	localStorage.setItem('sensor',d)
+	//var d=sensor;
+	//var d=sensor.innerHTML;
+	//localStorage.setItem('sensor',d)
 	doAction(message.payloadString);
   }
   
-   function myFunction() { 
-			sens=document.getElementById("sensor_val");
-			//document.getElementById("sensor_val").innerHTML=sensor;
-			var g = localStorage.getItem('sensor');
-			sens.innerHTML=g;
-		}
+   <!-- function myFunction() {  -->
+			<!-- sens=document.getElementById("sensor_val"); -->
+			<!-- //document.getElementById("sensor_val").innerHTML=sensor; -->
+			<!-- var g = localStorage.getItem('sensor'); -->
+			<!-- sens.innerHTML=g; -->
+		<!-- } -->
 		
 	 <!-- function myFunction() {  -->
 			<!-- document.getElementById("sensor_val").innerHTML=sensor; -->
