@@ -76,7 +76,7 @@ var message
 	sensor.innerHTML=message.payloadString;
 	var d=message.payloadString;
 	//NOvar d=document.getElementById('sensor_val');
-	localStorage.setItem('sensor',sensor)
+	localStorage.setItem('sensor',d)
 	doAction(message.payloadString);
   }
   
