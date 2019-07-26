@@ -75,13 +75,14 @@ var message
 	sensor=document.getElementById('sensor_val');
 	sensor.innerHTML=message.payloadString;
 	//var d=message.payloadString;
-	//var d=document.getElementById('sensor_val');
+	//NOvar d=document.getElementById('sensor_val');
 	localStorage.setItem('sensor',sensor)
 	doAction(message.payloadString);
   }
   
    function myFunction() { 
-			sens=document.getElementById("sensor_val");
+			//sens=document.getElementById("sensor_val");
+			document.getElementById("sensor_val").innerHTML=sensor;
 			var g = localStorage.getItem('sensor');
 			sens.innerHTML=g;
 		}
