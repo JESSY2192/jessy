@@ -74,24 +74,24 @@ var message
     console.log("onMessageArrived:"+message.payloadString);
 	sensor=document.getElementById('sensor_val');
 	sensor.innerHTML=message.payloadString;
-	//var d=message.payloadString;
+	var d=message.payloadString;
 	//NOvar d=document.getElementById('sensor_val');
-	//localStorage.setItem('sensor',sensor)
+	localStorage.setItem('sensor',d)
 	doAction(message.payloadString);
   }
   
-   <!-- function myFunction() {  -->
-			<!-- sens=document.getElementById("sensor_val"); -->
-			<!-- //document.getElementById("sensor_val").innerHTML=sensor; -->
-			<!-- var g = localStorage.getItem('sensor'); -->
-			<!-- sens.innerHTML=g; -->
-		<!-- } -->
-		
-	 function myFunction() { 
-			document.getElementById("sensor_val").innerHTML=sensor;
-			//var g = localStorage.getItem('sensor');
-			//sens.innerHTML=g;
+   function myFunction() { 
+			sens=document.getElementById("sensor_val");
+			//document.getElementById("sensor_val").innerHTML=sensor;
+			var g = localStorage.getItem('sensor');
+			sens.innerHTML=g;
 		}
+		
+	 <!-- function myFunction() {  -->
+			<!-- document.getElementById("sensor_val").innerHTML=sensor; -->
+			<!-- //var g = localStorage.getItem('sensor'); -->
+			<!-- //sens.innerHTML=g; -->
+		<!-- } -->
  
   
     // called when a message arrives
