@@ -29,6 +29,7 @@
   
   client = new Paho.MQTT.Client("postman.cloudmqtt.com",32147, "web_" + parseInt(Math.random() * 100, 10));
 var sensor
+var message
   // set callback handlers
   client.onConnectionLost = onConnectionLost;
   client.onMessageArrived = onMessageArrived;
