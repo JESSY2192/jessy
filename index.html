@@ -4,7 +4,7 @@
 	    <title>MQTT JavaScript Client Example</title>
 	    <!-- Latest compiled and minified CSS - add here as needed -->
 	</head>
-	<body>
+	<body onload="my_function()">
 	    <!-- HTML to display MQTT topic values ------------------------------------------------->
 		<div><strong>IOT Server</strong></div><br>
 		<textarea style="resize:none; border: none" readonly rows="1" cols="10">User Id</textarea>
@@ -14,7 +14,7 @@
 		<button id="led" onclick="led()">ldr</button>
 		<h1 id="led_state">off</h1>
 		<h1>sensor</h1>
-		<h1 id="sensor_val" href="javascript:my_function();">0</h1>
+		<h1 id="sensor_val" href="javascript:;">0</h1>
 		<!-- mosquitto MQTT -------------------------------------------------------------------->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
 		<!-- jQuery ---------------------------------------------------------------------------->
@@ -69,12 +69,22 @@ var message
   }
 
   // called when a message arrives
+  
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	sensor=document.getElementById('sensor_val');
-	sensor.innerHTML=message.payloadString
+	sensor.innerHTML=message.payloadString;
+	var d=message.payloadString;
+	localStorage.setItem('sensor',d)
 	doAction(message.payloadString);
   }
+  
+   function myFunction() { 
+			sens=document.getElementById("sensor_val");
+			var g = localStorage.getItem('sensor');
+			sens.innerHTML=g;
+		}
+ 
   
     // called when a message arrives
   function sendMessage(msg) {
@@ -91,9 +101,7 @@ var message
     //sendMessage(userId+boarId+':led_state:0')
 	sendMessage('ldr')
   }
-  function myFunction() { 
-			document.getElementById("sensor_val").innerHTML = sensor;
-		}
+  
   
   // called when a message arrives
   myName='leo'
