@@ -93,7 +93,7 @@ var message
   
   if (typeof(Storage) !== "undefined") {
   // Store
-  localStorage.setItem("lastname",sensor.innerHTML=message.payloadString);
+  localStorage.setItem("lastname",sensor);
   // Retrieve
   document.getElementById("sensor_val").innerHTML = localStorage.getItem("lastname");
 } else {
